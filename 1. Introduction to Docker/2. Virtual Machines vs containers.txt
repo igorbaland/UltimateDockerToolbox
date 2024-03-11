@@ -1,0 +1,25 @@
+Container
+	An isolated environment for running an application
+	
+		Allow running multiple apps in isolation
+		Are lightweight
+		Use OS of the host
+		Start quickly
+		Need less hardware resources
+
+
+Virtual Machine
+	An abstraction of a machine (physical hardware)
+		Mac
+		Windows
+		Linux
+			Hypervisor
+				create and manage virtual machine
+					virtualBox
+					VMware
+					Hyper-v(Windows only)
+
+		Problems
+			Each VM needs a full-blown OS
+			Slow to start
+			Resource-intensive

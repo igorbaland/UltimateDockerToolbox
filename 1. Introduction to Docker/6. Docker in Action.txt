@@ -1,0 +1,42 @@
+mkdir hello-docker
+
+cd hello-docker
+
+code .		#VSCode
+
+#create js file
+console.log("Hello docker") 
+
+#without docker
+	start with an OS
+	we need to install node
+	copy app files
+	and than run 
+		node app.js
+
+Add dockerfile, capital D without any extension
+Dockerfile		#VSCode, install recommended extensions...
+
+#hub.docker.com, search linux, node...
+FROM node:alpine	
+COPY . /app	
+WORKDIR	/app		#without WORKDIR /app, CMD node /app/app.js
+CMD node app.js
+
+#terminal
+docker build -t	hello-docker .		#-t tag
+
+#image isn't stored in our workdir, how docker storage this image is very complex
+
+docker images			#or image ls
+
+#now we can run this image on any computer running docker
+docker run hello-docker		#it doen't matter which directory we are in
+
+#play with docker (googln)
+add new instance
+#terminal
+docker pull ... 		#docker download this image
+docker image ls
+docker run ...
+

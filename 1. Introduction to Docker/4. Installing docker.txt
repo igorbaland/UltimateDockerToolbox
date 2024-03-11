@@ -1,0 +1,8 @@
+docs.docker.com/get-docker/		#download
+					#system requirements, otherwise we might encounter weird issues
+
+#run app docker
+
+#update WSL2, just click on link
+
+docker version

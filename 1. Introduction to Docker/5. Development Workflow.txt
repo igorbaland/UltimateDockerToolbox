@@ -1,0 +1,30 @@
+Application
+...
+...				Dockerfile	->	Image
+...
+
+
+Image
+	contains everything, that we need to run
+		
+		a cut-down OS
+		a runtime environment (eg Node)
+		application files
+		third-party libraries
+		environment variables
+		...
+
+
+After we have an image, we tell docker to start a container using that image
+
+Container is just a process. It has own file system, which is provided by the image
+
+docker run...
+
+
+The beauty of docker, 
+	once we have this image, we can push it to a docker registry, like DockerHub
+		DockerHub is like GitHub
+
+DEV	->	Registry	->	Test/Prod
+App		DockerHub		

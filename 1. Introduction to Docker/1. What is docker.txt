@@ -1,0 +1,30 @@
+A platform for building, running and shipping applications
+
+Reasons
+	One or more files missing
+	Software version mismatch
+	Different configuration settings
+
+Docker
+	package
+		node 14
+		mongo
+		App
+
+	we can ran this package of any machine that runs docker
+
+Container 
+	docker will automatically download and run dependencies 
+		inside an isolated environment called
+			container
+
+Beuaty of docker
+	isolated environment allows multiple applications use different versions of some software side by side
+
+	package1
+		node 14
+		app1
+
+	package2
+		node 9
+		app2
