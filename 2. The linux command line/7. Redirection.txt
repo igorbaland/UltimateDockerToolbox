@@ -1,0 +1,28 @@
+input/output
+
+cat file1.txt		#read and output
+
+cat file1.txt > file2.txt	#read the content from file1 and write this content to file2
+ls
+cat file2.txt
+
+cat file1.txt file2.txt		#both these data read and print to the console
+
+cat file1.txt file2.txt > combined.txt
+
+
+echo hello
+hello
+
+echo hello > hello.txt
+ls
+
+cat hello.txt
+hello
+
+echo whatever > whatever.txt
+
+ls -l /etc > files.txt
+
+
+<

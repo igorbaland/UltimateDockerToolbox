@@ -1,0 +1,24 @@
+#schell
+pwd		#with this we can see where we are in the working directory
+  /	#represents the root directory
+
+ls	#list, horizontal
+bin	dev ...
+
+ls -1	#list vertical
+
+ls l	# long list, include more details: permissions, created, date...
+
+cd	#relativ path: cd boot, cd bin...
+	#absolut path: cd /
+		we can press tab to get avto completion
+
+cd e	#tab -> etc,
+
+cd .. 	#previously directory
+cd ../..	#root dir
+
+ls /bin		#without to switch dir, only show dir
+		#bin, echo, pwd...
+
+cd ~	#home dir, for all users, not only root

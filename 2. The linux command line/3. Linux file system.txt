@@ -1,0 +1,17 @@
+Windows
+	C:\
+		Program files
+		Windows
+		...
+
+Linux
+/
+	bin	#binaries or programs		
+	boot	#include all the files related to booting
+	dev	#dev short for devices, everything is a file. Network socket, pipes and so on
+	etc	#editable text configuration
+	home	#home derictories for users are stored. Each user on this machine will have a home directory here
+	root	#home directory of the root user. Only root can access thid directory
+	lib	#library files, like software library dependencies
+	var	#variable, files that are updated frequently. Like lock files, application data
+	proc	#includes files that represent running processes

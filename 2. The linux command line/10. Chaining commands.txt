@@ -1,0 +1,49 @@
+In linux we have a few different ways for chaining or combaining multiple commands
+
+1. Semicolon, ;
+#home dir, create a dir called test and print something on the console
+#we don't want to press enter here
+#we want to type multiple command and execute them in one go
+	mkdir test;cd test; echo done		#we can add spaces for much readable
+
+#if we press enter all these commands will get executed one after another
+
+cd ..
+#if we go back and execute our last chaining command
+#we got an error, because we have already dir "test"
+	#but another 2x commands will get executed 
+
+#stub execution, if ones command fails, the other commands are not going to get executed
+#this is where we use the "and" operator
+	mkdir test ; cd test && echo done	#we still inside home dir, we didn't inside the test dir
+
+#OR operator
+	mkdir test || echo "dir exists"
+		dir exists
+	mkdir test2 ||echo "dir exists"		#created dir test2
+
+
+2. Pipe, |
+another chaining command is
+	piping
+This is extremely powerful 
+ls /bin		#content of bin dir
+less file.txt		#with this we can look at the content of a file, scroll up and down, line by line and quit
+
+#pipe, | 
+ls /bin | less
+
+ls /bin | head -n 5		#head, by default, we can see the first 10 lines
+					head -n 5, only 5 lines
+				#tail 
+
+
+3. Split commands into multiple lines, \
+Sometimes when we are dealing with a long commands
+     our commands sequence might look a little bit hard to read
+
+mkdir hello ; cd hello ; echo done		#imagine these commands are very long
+
+mkdir hello;\		#we go to the second line and the command prompt changes
+> cd hello;\
+> echo done

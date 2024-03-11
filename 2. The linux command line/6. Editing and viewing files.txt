@@ -1,0 +1,19 @@
+nano file1.txt
+ctrl+x 
+
+cat file1.txt	#view a content of a file, cat concatenate
+
+#better solution dealing with a long content
+more /ectc/adduser.conf		# more--(15%) we see 15% content of this file
+				#space 33%
+
+				# enter one line next
+				#with more we can only scroll down, not up
+
+
+#sroll up
+apt install less		app and down arrows
+less /etc/adduser.conf
+
+head -n 5 /etc/adduser.conf		#view the first five lines		##head tail like linkedList
+tail -n 5 /et...		#5 last lines

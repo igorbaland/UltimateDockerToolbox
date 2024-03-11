@@ -1,0 +1,22 @@
+mkdir test
+
+mv test docker	#move = rename, move 
+
+cd docker
+
+#create a new file
+touch hello.txt
+
+#multiple files in one go
+touch fie1.txt file2.txt file3.txt
+
+#list files as a single file pre line
+ls -1
+
+mv hello.txt hello-docker.txt
+
+#rm files
+rm file1.txt file2.txt		#rm file*	that starts with file
+
+#rm dir
+rm -r docker		#r recursive

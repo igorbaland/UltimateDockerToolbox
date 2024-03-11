@@ -1,0 +1,73 @@
+#create a new user
+	useradd		#press enter -> show all options
+		Options have 2 forms
+			the short		the long
+			-m				--create-home	#create the users's home directory
+			
+			useradd -m john
+				this user is stored in a configuration file in the 
+					/etc/						!!!!!!!
+					
+					#verify
+					cat /etc/passwd			#user account information
+					
+						john:x:1001:1001::home/john:/bin/sh
+							x means, the password is stored somewhere else
+								1001 userId
+									1001 grouId
+										homedirectory of this user
+											shellprogram used when this user logs in 
+											
+											
+				#diff between
+					
+					useradd
+						original API that was built
+							we see short info in oneline
+					
+					adduser
+						is a perl script, that is more interactive
+					
+						adduser bob
+							GroupName == userName
+							set the password:		#adduser is more interactive than the old command
+								Full Name[]: Bob Smith
+								Room Number[]: 100 ...
+								
+						
+		
+	
+	usermod
+		#options
+		-s,		--shell SHELL		#new login shell for the user account
+		
+		usermod -s /bin/bash john
+			cat /etc/passwd
+				john:x:1001:1001::/home/john:/bin/bash
+				
+				#password
+				cat /etc/shadow			#this file is only accessible to the
+											root user
+		
+			#login as another user, open new terminal window and log into our container as john
+				docker ps
+				
+				docker -it exec containerId bash		#bash session, -it -> interactive
+					exit	#terminate session
+				docker -it exec -u john containerId bash
+					john@...:/$		#/$ means, not a root user
+					
+					#what happens, if john is trying to open shadow file
+					cat /etc/shadow
+						permission denied
+						
+					cd ~		#john home directory
+						pwd		#path for this directory
+						/home/john
+					
+					
+	
+	userdel
+		userdel john
+
+

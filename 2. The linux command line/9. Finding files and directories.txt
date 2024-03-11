@@ -1,0 +1,32 @@
+ls
+
+#find, finding files and directories, if we executed this command
+# without any arguments, we see all the files and directories in the current 
+# directory recursively. 
+#This command is going to go  to every dir and list their files
+find
+./.bashrc	#two hidden files in current directory	
+./.profile	#ls by default, doesn't show hidden files and directory
+		#ls -a, short for all, show the all (also hidden files)
+
+#supply a path
+find /etc
+
+#show directories in current directory
+find -type d
+#show only files in the current dir
+find -type f
+
+#show file names start wit with f
+find -type f -name "f*"		#case sensetive, just like everything else in Linux
+find -type f -name "F*"		# if we type capital F, we don't find anything
+find -type f -iname "F*"	#i, ignore case sensetive
+
+
+
+#find all python files and write the result to python.txt
+find / -type f -name "*.py" > python.txt	#/ root dir
+cat python-files.txt		#verify
+
+
+

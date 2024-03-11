@@ -1,0 +1,37 @@
+groupadd
+	groupadd developers		#group, kind of permissions
+	
+	cat /etc/group		#list all the groups in this image
+		developers:x:1003:
+		
+		#we want to add john to this group
+		usermod
+			#diff
+			-g, --gid GROUP
+			-G,	--groups GROUPS
+				every linx user has 
+					1x primary group
+					0..n secondary
+				Why are the groups separated?
+					Let's say, john is part of 5x groups
+						and we want to create a newFile
+						
+						Every file is own by 1 user and 1 group
+						
+						If john is a part of 5 groups, to which group 
+						the new file will be added?
+							That is why we need a primary group
+							
+		usermod -G developers john 
+			1. cat /etc/passwd | grep -i john
+			2. grep john /etc/passwd
+			
+			//list groups with user john
+			groups john
+				john : john developers
+		
+groupmod
+
+
+
+groupdel

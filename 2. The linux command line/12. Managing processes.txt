@@ -1,0 +1,9 @@
+What is a process?
+	A process is an instance of a running program.
+	
+#see all the running programs or all the runing processes
+	ps	
+		#ps process showed, is only showed, because we executed just now
+	
+	#technically runs only one process right now
+		#bash

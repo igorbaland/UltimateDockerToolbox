@@ -1,0 +1,28 @@
+grep		#global regular expression print
+
+grep hello file1.txt
+
+#grep is case sesitivity,
+grep -i hello file1.txt		#-i, ignore/remove case sensivity
+
+grep -i root /etc/passw		#this path contains list of user accounts on this machine
+
+#search in multiple files
+grep -i hello file1.txt file2.txt
+#use a pattern
+grep -i hello file*
+
+#search in a directory name
+grep -i hello /etc		
+#or we can use a period to refer the current directory
+grep -i hello .		#error
+#add additional optin -r, recursive
+grep -i -r hello .		#with this we can search this directory and all his sub	dir recursively
+
+
+#In linux we can combine multiple options
+grep -ir hello .		#-i -r to -ir
+
+Using a grep command we can search for string in one or more files
+
+

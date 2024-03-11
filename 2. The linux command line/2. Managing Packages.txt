@@ -1,0 +1,32 @@
+Package managers
+	npm
+	yarn
+	pip
+	NuGet
+
+Package managers ubuntu
+	apt	#advanced package tool
+		#this command has a bunch of subcommands
+
+root@ffff99ee5c22:/# apt
+
+root@ffff99ee5c22:/# apt-get		#newer command
+
+root@ffff99ee5c22:/# nano		#texteditor for linux
+					# this is where we use apt to install nano
+
+root@ffff99ee5c22:/# apt install nano
+
+root@ffff99ee5c22:/# apt list		#show all installed packages
+
+root@ffff99ee5c22:/# apt update		# to update a database
+
+root@ffff99ee5c22:/# apt install nano
+
+root@ffff99ee5c22:/# nano	#open
+
+ctrl + x - exit
+ctrl + l - clear the window
+
+root@ffff99ee5c22:/# apt remove nano		
+

@@ -1,0 +1,70 @@
+logged as root and cd ~
+
+cd /home
+denploy.sh		#create a file
+			#sh extension -> shell script
+			
+	echo echo hello > deploy.sh
+	
+	cat deploy.sh
+		ls -l		#-l, long listing
+		drwxr-xr-x
+		-rw-r--r--
+		
+			d, directory
+			-, file
+			
+				9 letters are devidided into 3 groups:
+					- (file or d, directory)
+						rw-r--r--
+				
+						1. 	rw-		#the first group represents the user who owns this file, root, bob...
+							read
+							write
+							- execute is missing
+						
+						2. r--		#the second group represents the permissions for the group that owns this file, root
+							read
+							write missing
+							execute missing
+						
+						3. r--		#the third group represents the permissions for everyone else
+						
+					In each group we have permissions
+						r -> read
+						w -> write
+						x -> execute
+						
+	#execute this file
+	./deploy.sh
+		Permission denied
+		
+	#chmod, change mod command
+	chmod u+x deploy.sh		#user + execute
+		ls -l
+			the color of file deploy.sh - green
+				because not it's executable
+				
+				1. Group 
+				rwx
+					.deploy.sh
+						hello
+				
+	
+		#remove x permissions
+		chmod u-x deploy.sh
+	
+	chmod g 	#group
+	
+	#add user permission to execute this file
+	chmod o	#others
+		chmod o+x deploy.sh
+		
+		#john can execute script
+		./deploy.sh
+		
+		
+	#combine groups
+		#other group
+		chmod og+x+w-r *.sh
+		
