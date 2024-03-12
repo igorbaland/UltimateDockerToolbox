@@ -1,0 +1,19 @@
+npm start
+	this starts at development server on port 3000
+	
+	When we run this application inside a docker container,
+		this port will be open on the container, not on the host
+		
+On the same machine we ca have multiple containers running the same image
+	All these containers will be listening to port 3000,
+		but the port 3000 on the host is not going be automatically mapped to these containers.
+		
+FROM
+WORKDIR /app
+COPY . . 
+RUN npm install
+ENV API_URL=http://api.myapp.com/
+EXPOSE 3000
+
+	#expose command doesn't  automatically publish the port on host. 
+	It just a form of documentation to tell us this container will eventually listen on port 3000.

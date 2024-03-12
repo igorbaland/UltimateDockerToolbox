@@ -1,0 +1,57 @@
+Dockerfile
+	FROM node:14.16.0-alpine3.13
+	COPY package.json /app		#if dir app doen't exist,
+								docker will automatically created it
+											
+	#we can also copy more file
+	COPY package.json README.md /app/	#note /app + /
+	
+	#we can also use patterns
+	package*.json
+	
+	#everything in current directory into the app dir
+	COPY . /app/
+	
+	#destination
+		#relativ path if we set the working dir first
+		WORKDIR /app
+		COPY . .		#. using the period, meaning the current directory
+		
+	#copy the file that has a space in it
+	WORKDIR /app
+	COPY ["hello world.txt", "."]		#syntax error
+		#copy has a lot of form where we can pass an array of strings 
+		["", "", ""]
+
+
+
+ADD	
+	has the exact same syntax as copy, but add hast 2x additional features
+		1. add a file from url
+			ADD http://.../file.json .
+		2. if pass the compressed file
+			add will automatically uncompressed this into a a directory
+			
+			FROM
+			WORKDIR /app
+			COPY . .
+			ADD file.zip .
+	
+		
+		
+#with this we can copy one or more  files or directories
+	from the current directory,
+		meaning our project react-app into image react-app 
+		we cannot copy anything outside of this directory
+			here is the reason, when we are executed build command
+				docker -t react-app .
+	#. means, the current directory
+	docker client sends the content this directory to Docker engine
+		This is called 
+			The build context
+			So at that point,
+				Docker engine does not have access to any files or directories
+				out this directory
+	
+	
+	

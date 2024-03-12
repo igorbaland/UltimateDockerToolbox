@@ -1,0 +1,23 @@
+Let's say, we have an image on this machine, and we want to put it on another machine,
+	but without dockerhub
+	
+	
+	In this case we can save that image as a compressed file and load it on the other machine.
+	
+docker image save --help
+
+docker image save -o react-app.tar react-app:3 		#tar on linux, zip on windows, compressed file
+#current working dir
+
+Each layer contains 
+	json
+	layer.tar		contains all the files in that layer
+	
+
+#load command
+docker image load --help
+
+
+docker image load -i react-app.tar
+docker images
+	

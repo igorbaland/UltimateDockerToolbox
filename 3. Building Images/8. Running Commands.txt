@@ -1,0 +1,12 @@
+Install our project dependencies using npm
+
+FROM ..
+WORKDIR /app
+COPY ..
+RUN npm install
+
+	save
+		docker build -t react-app
+			docker run -it react-app sh
+
+	

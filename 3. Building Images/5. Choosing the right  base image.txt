@@ -1,0 +1,60 @@
+Dockerfile			
+		FROM node:14.16.0-alpine3.13
+
+#project directory****, save docker file		
+docker build -t react-app . 		#-t, tagging an image. ., 
+									where we  can find dockerfile, in the current directory
+									
+docker image ls		#docker images == docker image ls, list all images
+
+docker run -it react-app
+	We are inside a node environment. We can js code and node will execute it
+	
+	quit double ctrl+c
+	
+	docker run -it react-app sh
+		ls
+		
+		node --verion
+
+
+
+
+adding dockerfile to project
+	on the root of this project add a new file
+	
+	hub.docker.com/
+		searching for node
+		Node repositories on
+			DockerHub has 100 of node images
+				-> tags 
+					image depends on our application
+					
+					search for 14.78.98...
+						only 14 
+							 is a major version number			
+	
+	or we are searching from dockerfile
+		by default, the docker assumes the latest tag.
+			always use the specific version. ********
+		
+		specify a base image. The base image can be an operating system like
+			windows
+			linux
+			
+		or it can be an 
+			OS + runtime environment
+				For example 
+					C# .net image
+					python python image
+					javascript node
+					
+Docker samples
+	we can see various examples od Dockerfiles for different technology stacks
+		For example:
+			ASP.NET
+				mcr.microsoft.com/dotnet/core/sdk:3.1
+				
+			Django
+				python:3
+	

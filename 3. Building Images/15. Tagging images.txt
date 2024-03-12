@@ -1,0 +1,72 @@
+Whenever we build an image or pull it from DockerHub
+	by default, docker uses the latest tag
+		that is latest tag is just a label, there is nothing special about it.
+		It doesn't necessarily mean this is the latest version of our image.
+		
+	If we don't tag our images properly, latest can point to the loder image.
+		The latest totally is fine for development,
+			but we shouldn't use this in production. We don't want to put an image with the latest tag 
+			in our production or staging server, because if something goes wrong , we cannot easily 
+			troubleshoot issues, because we deon't know what version we are really running in production.
+			
+How can we tag an image
+	1. Way
+		to tag an image while building
+		
+			#what tag shuold be use? 
+			1.some teams like code names, 
+				version call buster and everyone know, what buster version all about
+			2.Other teams prefer semntic versioning like 3.1.5. This approach is common amongst teams that 
+				don't realease that often
+			3.Build numbers
+				76
+				Often it is done avtomatically by a continuous intergration and deployment tool.
+			
+			
+				docker build -t react-app:1 .
+					docker images
+					
+					We have 2x tags
+						1
+						latest
+							the same image with multiple tags
+							the same image with multiple tags
+								look at the imageId, both these images have the same identifier
+								
+								Our image can have multiple tags
+								
+	
+	2. Way 
+		to tag an image after building
+		
+		#repository or id
+			docker image tag react-app:latest react-app:1
+			docker images
+	
+	
+#remove tag 
+docker image remove react-app:1
+docker images
+
+
+#the latest tag can get out of order
+README.md add some changes
+	docker build -t react-app:2 .
+	docker images
+	
+		we have  two versions of this image
+			2
+			1
+			latest			> is pointing to 1, the same id's
+			
+			What we need to take away
+				the latest tag dosen't  necessarily reference the latest image,
+					we have to explicitly apply the latest image.
+					
+			docker image tag b06 react-app:latest
+			docker images
+				2		b06...
+				latest	b06...
+				1
+					
+			

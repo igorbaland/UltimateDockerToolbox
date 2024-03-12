@@ -1,0 +1,22 @@
+Docker client takes everything in our directory
+	that is called 
+		the build context or the context directory
+			and send it to
+				docker engine or docker daemon
+				
+2 benefits of excluding third-party libraries
+	1. Our build context is smaller
+		We transfer less data over the network
+	2. Our build is gonna be faster
+		We don't have to wait of all these files 
+			to be transferred to docker engine
+
+Excluding, like .gitignore
+	
+	.dockerignore		#everything in lowercase
+	
+	node_modules/		
+	
+We reduce transferring context from
+	100+ mB to 4+ kB
+				

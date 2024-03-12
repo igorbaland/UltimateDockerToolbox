@@ -1,0 +1,32 @@
+Dockerfile contains instructions for building an image.
+
+Dockerfile
+	from
+		specifying the base image
+			we take that base image
+				which contains a bunch of files and directories and
+					then we build on top of it
+	
+	workdir
+		once we use this command, all the following commands will be executed 
+			in the current working directory
+
+	copy
+	
+	add
+	
+	run
+	
+	env
+	
+	expose
+		for telling docker, that our container is starting on a given port
+	
+	user
+		specify the user that should run application
+			user with limited privileges
+			
+	cmd
+					for specifying the command that should be executed, when we start a container
+	entrypoint
+	

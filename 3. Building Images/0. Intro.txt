@@ -1,0 +1,6 @@
+- Creating docker files
+- Versioning images
+- Sharing images
+- Saving and loading images
+- Reducing the image size
+- Speeding up builds

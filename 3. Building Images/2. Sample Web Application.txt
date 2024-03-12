@@ -1,0 +1,28 @@
+frontend react app
+	package.json
+		//the third-party libraries´, our application needs to run
+		"dependencies": {
+			
+		}
+		
+let's say we want take this application and run it on a brand new machine.
+	we don't have anything,
+		but an operating system
+		
+		There are number of steps
+			we have to follow
+		
+			1. install node
+				once we have node, we can use 
+					package manager or npm to install the dependencies of this application
+						when we run this command
+							npm is going to look at 
+								package.json
+									that is going to automatically
+										download and store all these third-party libraries in this project
+			2. npm install
+				node_modules
+					//all dependencies
+			3. npm start
+			
+		We have the same concept in other development stacks

@@ -1,0 +1,54 @@
+Image
+	includes everything an application needs to run
+	
+		cut-down OS
+		third-party libraries
+		application files 
+		environment variables...
+		
+		an image conains all the files and configuration settings
+		needed to run an application
+		
+Once we have an image, we can start all
+	Container from it. Container is kind of like a virtual machine
+		
+		provides an isolated environment
+			for executing an application
+		can be stopped & restarted containers,
+			similar to virtuel machines
+		just a process
+			it is special kind of process, because it has its own file system
+				wich is provided by an image
+				
+docker ps	#show the running processes or containers
+#we want to start  new container from the same image
+#run container
+docker run -it imageName		#-it, interactive mode -> we can work with it
+we have 2 containers with same image and different container'sId
+
+#back to our first container
+	ls		#currently in home dir
+		bob	deploy.show	john	mosh
+		
+#back to our second session (second container)
+cd /home
+	ls
+	
+	#nothing here. Here is the reason
+		A container get its file system from the 
+			image
+			But each container has it own 
+				right layer						!!!!!!!!
+					What we write in a given container is
+						invisible from other containers
+						
+						Of course, the are the way to share data between containers
+						
+Each container is a an isolated environment for executing an application. 
+	It's an isolated universe
+
+[CONTAINER]	[CONTAINER]	[CONTAINER]
+	
+
+		
+		

@@ -1,0 +1,31 @@
+docker images
+	Repository and tag 
+		<none>		
+		
+			what we call dangling images
+				meaning loose images
+			These are essentially layers that have no relationship with a tagged image
+			As we were changing our dockerfile andrebuilding our image
+				Docker was creating this layers and at the some point, these layers lost
+				their ralationship with our react-app
+
+#to get rid of dandgling images
+	docker image prune
+
+	docker ps
+	docker ps -a
+
+	docker container prune
+	docker image prune
+
+	docker images
+
+#help
+	docker
+
+#removing 1..n images
+#name or id of the image
+	docker image rm id
+	
+	#remove than one
+		docker image rm id name			#seperate by a space

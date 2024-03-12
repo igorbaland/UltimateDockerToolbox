@@ -1,0 +1,63 @@
+Our build are very slow 
+	Reason: RUN npm install
+	
+Optimize this build
+	Understanding concept of layer in docker
+		Image
+			is a collection of layers
+			
+		Layers
+			1.FROM node:14.16.0-alpine3.13
+			2.RUN addgroup app && adduser -S -G app app
+			3.USER app
+			4.WORKDIR /app
+			5.COPY . .
+			6.RUN npm install
+			7.ENV API_URL=http://api.myapp.com/
+			8.EXPOSE 3000
+			9.CMD ["npm", "start"]
+			
+			context of layers
+				docker history react-app
+				
+					created by
+					
+					size
+					
+						#we have to read history from bottom to top
+						
+
+
+Docker has an optimization mechanism built into it. Next time we ask docker to build this image, 
+	it's going to look at the first instruction is
+		changed or not
+			If it's not changed, it's not going to rebuild this layer. It is going to reuse it from its cache
+			1. nothing changed
+			...
+			5. COPY . .		synchronize
+				#Once the layer is rebuilt, all the following layers have to be rebuilt as well
+					Docker can not reuse this layer from its cache. It have to install all NPM dependencies
+					
+Solution
+FROM node:14.16.0-alpine3.13
+RUN addgroup app && adduser -S -G app app
+USER app
+WORKDIR /app
+COPY package*.json .
+RUN npm install
+COPY . .
+ENV API_URL=http://api.myapp.com/
+EXPOSE 3000
+CMD ["npm", "start"]
+
+#verify
+add in REAMDE.md something and rebuild
+
+Dockerfile
+				Stableinstructions
+				
+				
+				
+				Changing instructions
+
+	

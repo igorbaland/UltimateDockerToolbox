@@ -1,0 +1,32 @@
+hub.docker.com
+	create account
+		create repository, like GitHub
+		
+		imageName == repositoryName
+		
+		docker image tag 654c4 remoteRepo/react-app:2
+			#2, if we don't specify tag, dovker will take avtomatically the latest tag
+			
+			images with the same id have a 3 tags
+			
+#push image
+docker login
+
+docker push remotRepo/react-app:2
+
+#some changes in readme
+docker build -t react-app:3 .
+docker images
+docker image tag react-app:3 remoteRepo/react-app:3
+docker push remoteRepo/react-app:3
+	id: pushed
+	layer already exist
+	...
+	
+	dockerHub
+	tags
+	2
+	3
+	
+	Now we can run this image on the other machine with docker
+			

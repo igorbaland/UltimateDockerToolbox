@@ -1,0 +1,107 @@
+-it, interract with with this container, we are not going to run a shell session
+
+docker run react-app
+	#our container started and than stopped, becaus we are din't specify a command or a program to execute
+	
+	docker eun react-app npm start
+	#Error access
+	EACCES: permission denied, mkdir '/app/node_modules/.cache'
+	
+		Dockerfile
+		USER app
+		
+		#we should move addgroup/adduser and user on the top
+		FROM node:14.16.0-alpine3.13
+		RUN addgroup app && adduser -S -G app app
+		USER app
+		WORKDIR /app
+		COPY . .
+		RUN npm install
+		ENV API_URL=http://api.myapp.com/
+		EXPOSE 3000
+		
+			*****save dockerfile*****
+		
+		docker build
+		run
+		
+			our werbserver is started on port 3000. This port 3000 is a port of container, not localhost
+			If we go to this address we are not going be able to access the application.
+			
+#we don't want to specify this command with docker run
+docker run react-app npm start
+	#to solve this we are using command instruction
+		CMD npm start
+		
+		
+		FROM node:14.16.0-alpine3.13
+		RUN addgroup app && adduser -S -G app app
+		USER app
+		WORKDIR /app
+		COPY . .
+		RUN npm install
+		ENV API_URL=http://api.myapp.com/
+		EXPOSE 3000
+		CMD npm start
+		
+		rebuild image
+		start container without npm start
+		
+		#note
+		because the command instruction is for supplying the default command
+			it doesn't make sense to have multiple command instructions in a Dockerfile
+				If we have multiple command instructions,
+					only the last will take effect.*********
+					
+					
+#diff RUN and CMD
+	with both these we can execute commands
+
+		
+		RUN
+			is a build time instruction
+				this is executing of the time of building the image
+		
+		1. #shell form
+		CMD
+			Command instruction
+				is the runtime instruction
+					will executed, when starting a container
+					
+		2. #execute form
+		CMD["npm", "start"]
+		
+			#diff between shell and execute forms
+				if we use the shell form
+					docker will execute this command inside the separate shell
+					#linux > bin/sh
+					#windows > cmd
+				
+				execute form
+					the common best practice is to use execute form,
+						because with this we can execute this command directly
+							there is no need to spin up another sharp process.
+					Also this makes easier and faster to clean up resources, when we stop containers
+					
+ENTRYPOINT
+	has two forms
+		1. shell
+		
+		2. execute
+			ETRYPOINT ["npm", "start"]
+			
+		diff between ENTRYPOINT and CMD
+			entrypoint override command
+			Example:
+				docker run ... echo hello
+				entrypoint -> echo
+			
+				
+			by cmd we cannot easily override command
+				if we want to override, we have to use 
+					--entrypoint opttion
+					
+					docker run react-app --entrypoint
+	
+				
+		

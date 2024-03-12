@@ -1,0 +1,19 @@
+Let's say our frontend application needs to talk  to 
+	a backend or an API. Quite often we set the URL of the API using 
+		an environment variable
+		
+FROM
+WORKDIR /app
+COPY . .
+RUN npm install
+ENV APRI_URL=http://api.myapp.com/
+
+	#older syntax, withe an equals sign
+	APRI_URL=http://api.myapp.com/		#also works
+	
+	docker build -t react-app .
+	
+	#list environment
+		1. printenv
+			printenv API_URL
+		2. echo $API_URL
