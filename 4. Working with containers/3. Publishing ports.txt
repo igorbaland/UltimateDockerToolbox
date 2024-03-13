@@ -1,0 +1,8 @@
+curently we have run 2x images. but we cann't access our react-app in client.
+port 3000 is published on the container, no on the host
+
+docker ps
+	column ports
+	
+	docker run -d -p 80:3000 --name c1 react-app
+		0.0.0.0:80->3000/tcp   c1

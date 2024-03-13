@@ -1,0 +1,67 @@
+Volume is a storage outside of containers
+	It can be directly on the host or somewhere in the cloud.
+	
+#volume
+	#create
+	docker volume create app-data
+	
+	#inspect
+	docker volume inspect add-data
+		#driver, local by default, that means - directory on the host.
+			drivers for creating volumes in the cloud. 
+			
+		#mountpoint, where the directory is created on the host
+
+
+#persistance data		
+	docker run -d -p 4000:3000 -v app-data:/app/data react-app			
+		#-v volume, absolut path in the file system our container.
+		
+	cd data
+	echo data data.txt
+		permission denied
+	cd ..
+	ls -l
+		data
+			d
+				rwx
+				r-x
+				r-x
+				
+			the reason, because we allowed docker automatically create it for us
+			To prevend it
+				Dockerfile
+				...
+				USER app			#using the app user
+				WORKDIR 	/app
+				RUN mkdir data		# > to create this dir, own by app user and avtomatically has a write permission
+				...
+				
+				docker build -t react-app .
+				
+				docker run  -d -p 5000:3000 -v app-data:/app/data react-app
+				
+				docker exec -it 3ba8e sh
+				
+				cd data
+					echo data > data.txt
+
+The beauty of volumes
+	1. if we delete this container,
+		this file will still exist. Because this directory is stored outside of container
+		
+		exit		#shell session
+			docker rm -f 637
+			
+			docker run -d -p 5000:3000 -v app-data:/app/data react-app
+			docker exec -it 942 sh
+			cd data
+				ls
+					data.txt
+					
+	2. also we can share the volumes between multiple containers
+					
+				
+	
+													
+		

@@ -1,0 +1,18 @@
+Sometimes we need to copy files between the host and a container
+	For example, logfile, we want to bring it to the host and analyze it.
+	
+Create a log file in app dir
+	docker exec -it 524 sh
+	echo hello > log.txt
+	exit
+	
+#copy command
+	docker cp containerId:pathToTheFile	.			#source destination
+	
+#create file in our workdir and copy it to the container
+	echo hello > secret.txt
+	
+	docker cp secret.txt containerId:/app
+	
+	docker exec -it containerId sh
+		docker ls

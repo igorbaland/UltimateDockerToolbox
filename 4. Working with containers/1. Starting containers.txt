@@ -1,0 +1,22 @@
+docker images
+
+#show the running containers
+docker ps		#short for processes, container is just a process
+				it it special kind of process, becau it has its own filesystem
+				which is provided by the image
+				
+docker run -d react-app		#-d, detach
+	with this we can run this container in the detached mode, which means
+	in the background
+		Our terminal window is free. Of course, the container is going to take a few seconds to start
+		
+docker ps
+
+#docker, names column
+docker automatically generate a random name
+	When we want to reference to this container, we can also use column names
+	
+	#set the name
+	docker run -d --name blue-sky react-app
+	
+	docker ps

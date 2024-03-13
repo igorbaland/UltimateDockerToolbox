@@ -1,0 +1,7 @@
+starting and stopping containers
+publishing ports
+viewing logs
+executing commands in containers
+removing containers
+persisting data using volumes
+sharing source code

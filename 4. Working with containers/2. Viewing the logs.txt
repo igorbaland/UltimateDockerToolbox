@@ -1,0 +1,20 @@
+we have 2x Containers running in the background
+	Problem
+		we don't know what is going on iside these containers
+			what if something goes wrong? what if the server generates and error?
+				
+Log command				
+docker ps
+	docker logs b96
+	
+	we see the output of this server
+		that is exactly the same, when we start our container in foreground
+		
+	docker logs --help
+	
+	
+		docker logs -f 123		#real time output
+		
+		docker logs -n 5 123		#show the last 5 lines
+		
+		docker logs -n 5 -t 655		#date + time

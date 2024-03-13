@@ -1,0 +1,13 @@
+When we are the container, it executes the default command  that we specified in our dockerfile
+
+What if we want to execute the command in a running container later.
+
+#execute command in running container
+docker exec c1 ls
+	#see the content of  direcctory app
+	# because we specifyied in dockerfile
+		WORKDIR /app
+		
+		
+docker exec -it c1 sh
+	exit

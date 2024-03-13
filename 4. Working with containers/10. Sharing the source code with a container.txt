@@ -1,0 +1,66 @@
+workdir
+	public
+		index.html		#update the title
+			we don't see changes
+			
+publishing changes
+	1. for production machine: 
+		build a new image
+	
+	---------
+		#1. build/rebuild
+			we don't want to build a new image, every time we make a tiny changes in our code, too time consuming
+		#2. copying into container
+			that is pain in the buttons
+	2. for development:		
+		we can create 
+			a mapping  or a binding 
+				between directory on the host and directory inside the container.
+		This way, any changes we make to any files in this directory are 
+			immediately visible inside the container
+		
+		[HOST]				[CONTAINER]
+		
+		/project	--->	/app
+		
+		---------
+		#start a new container
+		docker run -d -p 5001:3000 -v ${pwd}:/app
+										mac (), windows {}
+											invalid reference format
+		
+			#-v, volume mapping
+				#using the same syntax, we can map a directory on the host to a directory inside a container
+					#instead using the name  volume, which it the directory that docker managers,
+						we are going to use the current directory, thae directory that holds our application
+						
+			we don't want to type the full path here. This is where we use 
+				pwd
+					pwd:/app
+						if we execute this command, docker things, that is named volume, we don't want that
+							we want a fullpath.
+							We are gonna wrap this 
+								${pwd}:/app/data
+								
+			what about name volume?
+				we can still another option and use a named volume if we want to
+					docker run -d -p 5001:3000 -v ${pwd}:/app -v
+					
+					
+	docker run -d -p 5001:3000 -v ${pwd}:/app react-app
+	
+		docker logs -f coontainerId		#-f, follow option, we can see the changes as they come up
+		
+		#let's add more changes in index.html > <title>
+			save the changes
+			
+			sharing the source code with a container - work
+			
+In react we have a feature called
+	hot realoading, whenever we change any of files , our app gets automatically
+		reloaded the browser (don't need to reload current page)
+		
+		
+to share our source code with a container, we use the
+	volume -v option
+		to map the project directory to a directory in the containers file system.

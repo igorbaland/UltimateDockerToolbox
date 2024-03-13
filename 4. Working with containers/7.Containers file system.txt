@@ -1,0 +1,22 @@
+Each ccontainer has its own file system that is invisible to other containers
+
+docker ps
+	2 conainers are running
+	
+	start shell session on the first container
+		write something to a file  in the application directory
+		
+		docker exec -it 423 sh
+		echo data > data.txt
+		exit
+		
+	start a new shell session on the second container
+		docker exec -it 9c2 sh
+		ls | grep data
+	
+			#data is not there 
+				because each container has it's own file system, that is invisible to other containers
+				
+			That means, if we delete this container , it's file system also go with them 
+			and we will lose our data
+We should never store our data in a containers file system

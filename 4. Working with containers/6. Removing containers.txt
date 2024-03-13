@@ -1,0 +1,15 @@
+docker container rm c1
+
+#shortcut
+docker rm c1
+
+#force to remove
+docker rm -f c1		#if container is running
+
+#list stock containers
+docker ps -a
+
+	docker ps -a | grep c1
+	
+#get rid of all the stuff containers in one go
+docker container prune
