@@ -1,0 +1,92 @@
+when we run our application with 
+	docker-compose, docker-compose will avtomatically create a network and 
+	add our containers on that network. these containers can talk to each other
+	
+	
+docker network ls		#we can see all the networks on this machine
+	#every docker installation has 3 networks
+		
+		bridge
+		
+		host
+		
+		none
+		
+			vidly-default
+				#the diver for this network is 
+					bridge on linux
+						this network contains three hosts or three containers
+							web(frontend)
+							api(backend)
+							db(database)
+							
+							these hosts or these containers can talk to each other using their name
+							let's see this in action
+							
+								docker ps
+								
+								#execute interactet mode
+								docker exec -it 31d sh
+									#no permissions
+								
+								docker exec -it -u root 31d sh		#login as a root user
+								# means, high privileges
+								
+								ping api		#from web ping api
+					
+					
+					nat on windows
+					
+Under the hood
+Docker comes with an embedded 
+	DNS Server,
+		that contains the name or ip of 
+			these conainers. Inside each container , we have a component called
+				DNS resolver
+					talks to DNS Server to find the IP Adress of the target conainer
+					
+	When we ping the api container
+		this dns resolver asks the server, what is the IP address of the
+			api container or api container
+			
+			DNS Server returns the ip address
+				And than the web container can directly talk to the API Container using this Ip address
+
+				Each container has Ip address and is a part of a network
+	
+Docker	
+	embedded					
+	[DNS SERVER]						CONTAINER
+	contains names/ip's 				dns resolver
+	of containers							talks to dns server	
+												to find the ip address to the target container
+						
+						when we ping the api container
+						
+						dns resolver aks dns server, what is the ip address of web api
+						<---ip for api?---
+						
+						dns server returns the IP
+						---172.21.0.3--->
+						
+Each container
+
+	CONTAINER			CONTAINER			CONTAINER
+	172.21.0.1			172.21.0.2			172.21.0.3
+	
+	has an ip address
+		and is a part of a network
+		
+#to see ip address of the container
+	ifconfig
+		two newtwork adapters
+		
+		eth0		#ethernet 0
+			#the ip address of this container
+			inet addr:172.21.0.2
+			
+			back to our docker-compose file. Earlier we have defined API service
+				we added 
+					environment: contains the database connection string
+		
+						

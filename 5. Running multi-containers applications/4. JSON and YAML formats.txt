@@ -1,0 +1,73 @@
+in the root of project
+	
+	#add a new file
+	data.json
+		json is a language, human readable language for representing data
+		
+		#{}, object or an array
+		{
+			"name": "The Ultimate Docker Course",
+			"price": 149,
+			"is_published": true
+			"tags": ["software", "devops"],
+			"author": {
+				"first_name": "Mosh",
+				"last_name": "Hamedani"
+			}
+		}
+		
+		#convert json to yml. YML is another language for representing data, 
+			but it has less clutter than json. It's easier to read
+			
+			#create a new file on the root and copy paste the context from data.json
+				#both extensions accept
+					yml or yaml
+			
+			data.yml
+				---				#indicate the beginning of the yaml file
+					#in yaml, we don' use {} to indicate hierarchy. 
+						This idea has come from Python
+						
+						shortcuts in VSCode f1
+							indent line
+							reindent line
+							
+					#we don't have to use ""
+						vs code
+							replace dialoque
+								ctrl + f	"
+									ctrl + alt + enter
+									
+					#representing list
+						tags:
+						  -software
+						  -devops
+						  
+						  
+				---
+				name: The Ultimate Docker Course
+				price: 149
+				is_published: true
+				tags: 
+				  - software
+						- devops
+				author: 
+					first_name: Mosh
+					last_name: Hamedani
+					
+				yaml is easier to read and understand
+				
+Why don't we use yaml all the time?
+Because parsing yaml files is a little bit slower than parsing JSON file.
+	Becaue the parser doen't know 
+		if this is a string or a number 
+		
+In contrast in json, 
+	strings are represented using quotes and more specifically, double quotes
+	
+	
+YAML
+	for configuration files
+JSON
+	for exchanging data beteen mulltiple computers like a client and a server
+						

@@ -1,0 +1,37 @@
+Docker compose is built on top of docker engine. Everything we have done with docker engine,
+	like building images, listening them, starting container and so on
+		All of these operations are also available using Docker docker compose
+		
+docker-compose	#help
+
+The difference is that every of this commands will apply to our application as whole
+	Most of this commands will impact multiple services or 
+		multiple containers in our application 
+		
+	docker-compose build --help
+	
+		--no-cache 		#we can prevent caching when building the image. Sometimes we encoutner weird issues 
+						and e want to make sure that cache is not used.
+						
+		--pull			#with this we can always pull a newer version of the image
+		
+	docker-compose build
+		#note, in our working dir, not in docker-compose file directory
+		
+		# our build war super fast, because everything came from the 
+			cache
+		
+		docker images
+			we build only 2 at the top images frontend and backen
+				the 2 other we built earlier
+				
+				appName_frontend
+				
+				appName is the name of the dir
+				
+				
+				created column
+				
+	docker-compose build --no-cache			#full rebuild
+				
+					

@@ -1,0 +1,48 @@
+Create a compose file from the scratch
+	#rename existing docker-compose for creating a new file from scratch, 
+		_docker-compose.yml
+		
+	#create docker-compose.yml, all in lower case, otherwise docker-compose is not going be to find this file
+	docker-compose.yml
+		#what version should be use?
+			search for docker compose file
+			
+		version: "3.8"		#we need to wrap versionNumber with double quotes, otherwise it will be as a number	
+							#docker compose expect this value to be a string
+							
+		services: 			#other application parts... frontend, backend, db
+							#each service has it owns port in dockerfile
+			web:
+				build: ./frontend		#where we can find a dockerfile
+				ports: 					#ports mapping, because we can have multiple ports, we use list
+					- 3000:3000
+			api:
+				build: ./backend
+				ports:
+					- 3001:3001
+				environment:
+					DB_URL: mongodb://db/vidly		#second way, -DB_URL=mongodb://db/vidly
+			db:
+				image: mongo:4.0-xenial			#instead of build, we can use the image property
+													pull from dockerhub
+												#windows images is very large, 
+													xenial -> linux image
+				ports:							mongoDB by default listens 27017
+						- 27017:27017
+				volumes:
+					- vidly:/data/db
+		volumes:
+			vidly: 
+												
+			
+			
+			
+docker-compose.yml
+	backend
+		Dockerfile
+	frontend
+		Dockerfile
+	db
+		Dockerfile
+	
+	

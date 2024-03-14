@@ -1,0 +1,14 @@
+Viewing logs
+docker-compose logs
+
+containers in different logs
+
+docker-compose logs --help
+	-f , follow the log output
+	
+What if we don't see the logs for all these containers in one place
+
+docker ps
+	we want only to look on the logs of our webcontainer
+	
+	docker logs containerId -f

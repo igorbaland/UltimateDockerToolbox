@@ -1,0 +1,11 @@
+Frontend		Backend		Database
+	#Everything come together
+	
+Docker compose
+	building and running multi application
+Docker networking
+
+Database migration
+
+Running automated tests
+	

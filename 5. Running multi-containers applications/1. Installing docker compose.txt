@@ -1,0 +1,11 @@
+Docker compose tool
+	which is built on top of docker engine. 
+		It make incredible easy to start applications with multiple containers
+
+#verify installed docker-compose
+docker-compose --verify
+	Docker Compose version v2.19.1		
+
+Docker compose install
+	docs.docker.com/compose/install/
+	

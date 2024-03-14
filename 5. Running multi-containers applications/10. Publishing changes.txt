@@ -1,0 +1,28 @@
+we are going to map our project directory, like the backend directory to 
+	the app dirctory inside our container
+	
+Exactly like before, changes is immedatily visible inside a container
+
+We have to do this seperately
+	backend
+	frontend
+	
+open docker-compose file
+	services:
+		api:
+		...
+		environment:
+		volumes:		#we can have 1 or more volumes mapping, here we need add array syntax
+			- ./backend:/app
+		
+		docker-compose up
+			error
+				sh: nodemon: not found		#nodemount is package,that our backend project dependent on it
+				
+				backend
+					package.json
+					
+				backend run
+					npm install
+
+docker-compose up

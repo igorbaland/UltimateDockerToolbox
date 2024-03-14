@@ -1,0 +1,35 @@
+docker-compose up		#starting app
+	if the images are ready, docker start container
+		if not, docker will automatically build and than start
+		
+--build		#force to rebuild everytime when we run an app
+
+docker-compose up --build		#combine
+
+-d		#detach mode, start a container in the background
+
+docker-compose ps
+	#we can see all the containers relevant to this application
+	
+	#in contrast
+	docker ps 		#we can see all the running container across all applications
+	
+	vidly_api_1
+	vidly_db_1
+	vidly_web_1
+		why does it 1?
+			we can start multiple containers from the same image and this is useful for 
+				high availability and scalability
+				
+#show commands
+	npm start
+	mongod
+	npm start
+	
+#ports mapping
+	
+
+
+#stop container
+docker-compose down		#this wil stop and remove these containers
+						but the images are still there

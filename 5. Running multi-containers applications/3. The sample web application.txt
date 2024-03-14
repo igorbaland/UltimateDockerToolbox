@@ -1,0 +1,65 @@
+We are going to look at a real world application with 
+	multiple blocks
+		frontend
+		backend
+		database
+		
+steps without docker
+	node project
+		1. download project
+		2. installing all dependencies
+		3. start the webserver
+	
+	frontend project
+		#the same steps as a node project
+		
+			
+	mongoDB
+		the same steps
+	
+		we need 3 x sessions/terminal windows to running 
+			backend 
+			frontend 
+			mongoDB
+			...
+			
+We have so many steps that we have to follow at the moment we check out the source code from our GitHub repo
+
+
+--------
+With a docker we don't have to do any ot these things
+	all we have to do 
+		is run a single command
+		
+cmd > root of this project
+	dir
+		...
+		docker-compose.yml
+			which is used for composing a multi container application. Once we have this file in our project
+				we can simply run 
+				
+				docker-compose up
+					
+					1. docker will automatically downloading 
+						mongoDB 
+					at the same time it's goint to install all these dependenies for our
+						frontend
+						backend
+							project
+					2. start webserver
+						and run automated tests all in this window
+							and we can access it in client
+							
+							
+The beauty is that our database is populated with these movies as part of bringing up our application
+	We didn't have to manually insert these movies in our database. 
+		We have a migration script for populating our database and
+			Docker automatically executed our migration script as part of bringing up this application
+				This is very common real world scenario
+				
+We brought up this application 
+	using a single command
+	
+	
+docker-compose.yml
+	yml format

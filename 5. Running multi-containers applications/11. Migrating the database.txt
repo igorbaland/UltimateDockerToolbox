@@ -1,0 +1,103 @@
+When we release our application, we want our database to be in a particular shape with some data
+	This is called database migration
+	
+	migrate-mongo			#migration tool for mongo database
+	
+			package.json
+				dependencie {
+					"migrate-mongo": "8^1.4"
+					
+Using migration tool, we can create database migration scripts,
+	in this project, our migration script is stored in
+		backend/migrations
+			3462611		#migration script
+			
+			currently we have 1 script
+			
+			this is a basic javascript file
+				in tthis file we have two functions
+					up()
+						for upgrading the database
+					down()
+						downgrading
+
+		
+using tool migrate mongo
+	
+	#root project path
+	migrate-mongo up		#this will look at our migrations folder, and execute migration scripts
+		#what if we execute this command multiple time?
+			Our script is not going to be execute twice
+			
+	#package.json, scripts
+		we have these commands
+			up
+				db:up: migrate-mongo up
+					which is mapped to 
+						migrate-mongo up
+							#in our terminal
+								migrate-mongo up	#or
+								npm run db:up
+			
+			start
+			
+			test
+			
+How we can execute migration as a part of our application?
+	#backend/Dockerfile
+		npm start
+		
+		in compose file we can override our dockerfile
+			api(backend)
+				command: migrate-mongo up && npm start
+					#the problem
+						it is possible that our database server is not ready at the time of executing this command
+							#the database layer, because starting the database engine often takes several seconds
+					#solution
+						waiting script		#search for docker wait for container, we can find a lit of tools
+											that give us have that capability
+												https://docs.docker.com/compose/startup-order/
+						#tools
+							wait-for-it
+							dockerize
+							sh-complatible wait-for
+							RealayAndContainers...
+							
+						after added a shell script to backend
+						
+						we can use
+						command: ./wait-for db:27017 && migrate-mongo up && npm start
+						
+						#we can simplify this command
+						write own shell script, in our case 
+							docker-entrypoint.sh		#sh linux, windows, powershel
+								#!/bin/sh
+
+								echo "Waiting for MongoDB to start..."
+								./wait-for db:27017 						#add script
+
+								echo "Migrating the databse..."
+								npm run db:up 							#npm's command
+
+								echo "Starting the server..."
+								npm start 
+								
+						#our simplify command
+						command: ./docker-entrypoint.sh
+
+#remove database and test migration script
+docker volume ls 
+	vidly-vidly			#1. vidly
+							represents our application
+						2. vidly
+							the name of our volume
+		
+		#now is our mongoDb database is gone
+		docker volume rm vidly_vidly
+		
+		docker-compose up
+			
+							
+						
+
+			

@@ -1,0 +1,41 @@
+Running automated tests
+
+For both these projects (frontend and backend)
+	we have ready test scripts
+	
+	1 way to run this test
+	#go to  backend directory	
+	npm test
+	
+#run tests inside a container, but it is very slow, because the tests going be always exucute, after we change something
+	the benefits, de don't must to run tests for backend and frontend
+	
+	
+	docker-compose.yml
+		#we want to use the existing image, the image that was built for this service
+		#duplicate our backend/api service
+			 api:
+				build: ./backend
+				ports:
+				  - 3001:3001
+				environment:
+				  DB_URL: mongodb://db/vidly  
+				volumes: 
+				  - ./backend:/app
+				command: ./docker-entrypoint.sh
+				
+			#rename	
+			api-test:
+				image: vidly_web			#we are not going to build a new image, we want to reuse an existing image
+				#ports:						#we don't need the ports, because we don't want to access the service directly
+				#  - 3001:3001
+				#environment:
+				  #DB_URL: mongodb://db/vidly  
+				volumes: 						#what about volumes? we wanna keep this here. Any changes we make to our
+				  - ./backend:/app				#code, our tests is immediately visible inside this container
+				
+				command: npm test
+
+				
+				
+				

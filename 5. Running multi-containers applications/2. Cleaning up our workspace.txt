@@ -1,0 +1,40 @@
+docker images
+
+docker ps
+
+	we have a bunch of images and some running containers. We want to get rid of them all
+		#remove images, 1..n
+		docker image rm 123 122
+			
+			#see all images
+			docker image ls
+			
+				#get only images id
+				docker image ls -q
+				
+				#At first remove the containers, because some of these images can be in a running container
+				docker container rm -f $(docker container ls -a -q)			#-a will bring stock containers as well
+																			-aq, combine options
+																			
+								
+				
+				#now we can pass it as a argument
+				docker image rm $(docker image ls -q)
+				
+docker images
+docker ps -a
+
+
+
+#shortcut to step1
+	docker desktop icon
+		troubleshoot icon
+		
+			restart docker desktop
+			...
+			clean and purge data
+				remove everything in docker
+					images
+					containers
+					volumes
+					...
